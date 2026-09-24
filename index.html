@@ -1,0 +1,350 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Raspberry Pi Supply Dashboard</title>
+        <style>
+            body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 20px; background-color: #f4f7f6; color: #333; }
+            h1 { text-align: center; color: #c51a4a; }
+            .container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+            .timestamp { text-align: center; color: #777; margin-bottom: 20px; }
+            table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+            th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; }
+            th { background-color: #f8f9fa; font-weight: bold; text-transform: uppercase; font-size: 0.9em; color: #555; }
+            tr:hover { background-color: #f1f1f1; }
+            .in-stock { color: #28a745; font-weight: bold; }
+            .out-of-stock { color: #dc3545; font-weight: bold; }
+            .check-website { color: #ffc107; font-weight: bold; }
+            a { color: #007bff; text-decoration: none; }
+            a:hover { text-decoration: underline; }
+            th { cursor: pointer; position: relative; padding-right: 20px; user-select: none; }
+            th::after { content: '↕'; position: absolute; right: 5px; color: #ccc; font-size: 0.8em; }
+            th.sort-asc::after { content: '▲'; color: #555; }
+            th.sort-desc::after { content: '▼'; color: #555; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Raspberry Pi Supply Dashboard</h1>
+            <div class="timestamp">Last updated: 2026-09-24 09:39:27 UTC</div>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Supplier</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Link</th>
+                </tr>
+    
+                <tr>
+                    <td>Raspberry Pi 5 8GB</td>
+                    <td>Adafruit</td>
+                    <td>$200.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.adafruit.com/product/5813" target="_blank">View on Adafruit</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 4GB</td>
+                    <td>Adafruit</td>
+                    <td>$130.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.adafruit.com/product/5812" target="_blank">View on Adafruit</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 4 4GB</td>
+                    <td>Adafruit</td>
+                    <td>$120.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.adafruit.com/product/4296" target="_blank">View on Adafruit</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Zero 2 W</td>
+                    <td>Adafruit</td>
+                    <td>$19.05</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.adafruit.com/product/5291" target="_blank">View on Adafruit</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 8GB</td>
+                    <td>SparkFun</td>
+                    <td>$180</td>
+                    <td class="in-stock">In Stock</td>
+                    <td><a href="https://www.sparkfun.com/products/23551" target="_blank">View on SparkFun</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 4GB</td>
+                    <td>SparkFun</td>
+                    <td>$110</td>
+                    <td class="in-stock">In Stock</td>
+                    <td><a href="https://www.sparkfun.com/products/23550" target="_blank">View on SparkFun</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 8GB</td>
+                    <td>PiShop</td>
+                    <td>$175.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.pishop.us/product/raspberry-pi-5-8gb/" target="_blank">View on PiShop</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 4GB</td>
+                    <td>PiShop</td>
+                    <td>$110.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.pishop.us/product/raspberry-pi-5-4gb/" target="_blank">View on PiShop</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 8GB</td>
+                    <td>DigiKey</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.digikey.com/en/products/detail/raspberry-pi/SC1112/21267073" target="_blank">View on DigiKey</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 8GB</td>
+                    <td>Micro Center</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.microcenter.com/search/search_results.aspx?Ntt=raspberry+pi+5+8gb" target="_blank">View on Micro Center</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi 5 8GB</td>
+                    <td>Newark</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.newark.com/c/embedded-computers-education-maker-boards/raspberry-pi/raspberry-pi-5-model-b" target="_blank">View on Newark</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Zero 2 W</td>
+                    <td>SparkFun</td>
+                    <td>$19</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.sparkfun.com/products/18713" target="_blank">View on SparkFun</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Zero 2 W</td>
+                    <td>PiShop</td>
+                    <td>$17.25</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.pishop.us/product/raspberry-pi-zero-2-w/" target="_blank">View on PiShop</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Zero 2 W</td>
+                    <td>DigiKey</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.digikey.com/en/products/filter/raspberry-pi-zero-2-w" target="_blank">View on DigiKey</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Zero 2 W</td>
+                    <td>Micro Center</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.microcenter.com/search/search_results.aspx?Ntt=raspberry+pi+zero+2+w" target="_blank">View on Micro Center</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Zero 2 W</td>
+                    <td>Newark</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.newark.com/c/embedded-computers-education-maker-boards/raspberry-pi/raspberry-pi-zero-2-w" target="_blank">View on Newark</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico</td>
+                    <td>Adafruit</td>
+                    <td>$4.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.adafruit.com/product/4864" target="_blank">View on Adafruit</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico W</td>
+                    <td>Adafruit</td>
+                    <td>$6.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.adafruit.com/product/5526" target="_blank">View on Adafruit</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico</td>
+                    <td>SparkFun</td>
+                    <td>$4.6</td>
+                    <td class="in-stock">In Stock</td>
+                    <td><a href="https://www.sparkfun.com/products/17829" target="_blank">View on SparkFun</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico W</td>
+                    <td>SparkFun</td>
+                    <td>$4.95</td>
+                    <td class="in-stock">In Stock</td>
+                    <td><a href="https://www.sparkfun.com/products/20173" target="_blank">View on SparkFun</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico</td>
+                    <td>PiShop</td>
+                    <td>$3.95</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.pishop.us/product/raspberry-pi-pico/" target="_blank">View on PiShop</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico W</td>
+                    <td>PiShop</td>
+                    <td>$6.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.pishop.us/product/raspberry-pi-pico-w/" target="_blank">View on PiShop</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico</td>
+                    <td>DigiKey</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.digikey.com/en/products/filter/raspberry-pi-pico" target="_blank">View on DigiKey</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico W</td>
+                    <td>DigiKey</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.digikey.com/en/products/filter/raspberry-pi-pico-w" target="_blank">View on DigiKey</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico</td>
+                    <td>Micro Center</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.microcenter.com/search/search_results.aspx?Ntt=raspberry+pi+pico" target="_blank">View on Micro Center</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico W</td>
+                    <td>Micro Center</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.microcenter.com/search/search_results.aspx?Ntt=raspberry+pi+pico+w" target="_blank">View on Micro Center</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico</td>
+                    <td>Newark</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.newark.com/c/embedded-computers-education-maker-boards/raspberry-pi/raspberry-pi-pico" target="_blank">View on Newark</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico W</td>
+                    <td>Newark</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.newark.com/c/embedded-computers-education-maker-boards/raspberry-pi/raspberry-pi-pico-w" target="_blank">View on Newark</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico 2 W</td>
+                    <td>Adafruit</td>
+                    <td>$12.50</td>
+                    <td class="check-website">Unknown</td>
+                    <td><a href="https://www.adafruit.com/product/6000" target="_blank">View on Adafruit</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico 2 W</td>
+                    <td>SparkFun</td>
+                    <td>Unknown</td>
+                    <td class="in-stock">In Stock</td>
+                    <td><a href="https://www.sparkfun.com/products/26356" target="_blank">View on SparkFun</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico 2 W</td>
+                    <td>PiShop</td>
+                    <td>$7.00</td>
+                    <td class="out-of-stock">Out of Stock</td>
+                    <td><a href="https://www.pishop.us/product/raspberry-pi-pico-2-w/" target="_blank">View on PiShop</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico 2 W</td>
+                    <td>DigiKey</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.digikey.com/en/products/filter/raspberry-pi-pico-2-w" target="_blank">View on DigiKey</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico 2 W</td>
+                    <td>Micro Center</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.microcenter.com/search/search_results.aspx?Ntt=raspberry+pi+pico+2+w" target="_blank">View on Micro Center</a></td>
+                </tr>
+        
+                <tr>
+                    <td>Raspberry Pi Pico 2 W</td>
+                    <td>Newark</td>
+                    <td>Check Website</td>
+                    <td class="check-website">Check Website</td>
+                    <td><a href="https://www.newark.com/c/embedded-computers-education-maker-boards/raspberry-pi/raspberry-pi-pico-2-w" target="_blank">View on Newark</a></td>
+                </tr>
+        
+            </table>
+        </div>
+        <footer style="text-align: center; margin-top: 40px; color: #888; font-size: 0.9em; padding-bottom: 20px;">
+            List compiled on: September 24, 2026 at 09:39 AM UTC
+        </footer>
+
+        <script>
+            document.querySelectorAll('th').forEach((th, i) => {
+                th.addEventListener('click', () => {
+                    const table = th.closest('table');
+                    const tbody = table.querySelector('tbody') || table;
+                    const rows = Array.from(tbody.querySelectorAll('tr:nth-child(n+2)'));
+                    const isAscending = th.classList.contains('sort-asc');
+                    
+                    table.querySelectorAll('th').forEach(t => t.classList.remove('sort-asc', 'sort-desc'));
+                    th.classList.toggle('sort-asc', !isAscending);
+                    th.classList.toggle('sort-desc', isAscending);
+                    
+                    rows.sort((a, b) => {
+                        const cellA = a.children[i].textContent.trim();
+                        const cellB = b.children[i].textContent.trim();
+                        
+                        const numA = parseFloat(cellA.replace(/[^0-9.-]+/g, ""));
+                        const numB = parseFloat(cellB.replace(/[^0-9.-]+/g, ""));
+                        
+                        if (!isNaN(numA) && !isNaN(numB) && cellA.includes('$') && cellB.includes('$')) {
+                            return isAscending ? numA - numB : numB - numA;
+                        }
+                        return isAscending ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+                    });
+                    
+                    rows.forEach(row => tbody.appendChild(row));
+                });
+            });
+        </script>
+    </body>
+    </html>
+    
